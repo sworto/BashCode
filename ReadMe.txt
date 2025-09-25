@@ -1,0 +1,1 @@
+I created this repo to learn bash scripting. I hope its fun!
