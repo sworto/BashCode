@@ -1,0 +1,3 @@
+#!/bin/bash
+read DAY DATE MONTH YEAR TIME PM <<< $(date)
+echo "$DATE/$MONTH/$YEAR/$TIME"
