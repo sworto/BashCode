@@ -65,12 +65,12 @@ int main(){
         if(occupied==time&&running){
             if(running->bt==0){
                 running->completed=1;
-                printf("Process %d completed at %d Time\n",running->pid,time);
+                printf("Process %d completed at %d units\n",running->pid,time);
                 running=NULL;
             }
             else{
                 running->completed=0;
-                printf("Process %d preempted at %d Time\n",running->pid,time);
+                printf("Process %d preempted at %d units.\n",running->pid,time);
                 running=NULL;
             }
         }
