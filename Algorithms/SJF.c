@@ -11,7 +11,7 @@ typedef struct block{
     }process;
 //process and running state
 process processq[5];
-process running;
+process* running=NULL;
 int main(){
     srand(time(NULL));
         for(int i=0;i<5;i++)
@@ -37,19 +37,23 @@ int main(){
                 if(processq[i].at<=time&&processq[i].bt<=small&&processq[i].complete==0){
                     flag=1;
                     small=processq[i].bt;
-                    running=processq[i];
+                    running=&processq[i];
                 }
             }
             if(flag!=0){
-                printf("Process %d completed at %d units\n",running.pid,time+running.bt);
-                for(int i=0;i<5;i++){
+                printf("Process %d completed at %d units\n",running->pid,time+running->bt);
+                running->complete=1;
+                time=time+running->bt-1;
+//idiot proofing commence.
+                /*for(int i=0;i<5;i++){
                 if(processq[i].pid==running.pid){
                     processq[i].complete=1;
                     time=time+running.bt-1;
-                }
-            }
+                }*/
+//idiot proofing end.
             }
             time++;
         }
+
     return 0;
 }
